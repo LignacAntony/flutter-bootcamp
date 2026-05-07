@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'features/tasks/models/task.dart';
+import 'features/tasks/widgets/task_card.dart';
+
 void main() {
   runApp(const TaskFlowApp());
 }
@@ -16,7 +19,19 @@ class TaskFlowApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Times New Roman',
       ),
-      home: const Scaffold(body: Center(child: Text('TaskFlow — en construction 🚧'))),
+      home: Scaffold(
+        body: Center(
+          child: TaskCard(
+            task: Task(
+              id: '1',
+              title: 'Apprendre Flutter',
+              description: 'Apprendre les bases de Flutter',
+              isCompleted: false,
+              createdAt: DateTime.now(),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
